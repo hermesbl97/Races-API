@@ -16,6 +16,7 @@ const db = knex({
 
 //se importan las rutas y le pasamos app y la base de datos
 require('./routes/carreras')(app, db);
+require('./routes/atletas')(app, db);
 
 app.listen(8080, () => {
     console.log("El backend ha iniciado en el puerto 8080"); 
