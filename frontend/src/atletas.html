@@ -89,6 +89,8 @@
         };
     </script>
     <link rel="stylesheet" href="carreras-styles.css">
+    <script src="atletas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body class="selection:bg-secondary selection:text-on-secondary" onload="obtainAtletas()">
@@ -118,105 +120,12 @@
         <section class="py-16">
             <div class="flex items-end justify-between mb-10 px-4">
                 <div class="flex flex-col gap-2">
-                    <span class="text-secondary font-headline text-xs font-bold tracking-widest uppercase">Próximos
-                        Eventos</span>
-                    <h2 class="text-white text-3xl font-headline font-bold">
-                        Carreras Destacadas
-                    </h2>
+                    <span class="text-secondary font-headline text-xs font-bold tracking-widest uppercase">Registro de
+                        atletas</span>
                 </div>
-                <a class="text-secondary font-bold text-sm flex items-center gap-2 group" href="#">
-                    Ver todas las carreras
-                    <span
-                        class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </a>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-                <!-- Race Card 1 -->
-                <div
-                    class="flex flex-col bg-surface-container-low rounded-lg overflow-hidden group hover:translate-y-[-4px] transition-all">
-                    <div class="w-full aspect-[16/10] bg-center bg-no-repeat bg-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                        data-alt="Dynamic shot of a city street race with runners blurred in motion and urban architecture in the background"
-                        style="
-                        background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDknZIg-496hR5m434EFbEn9OnlskxbS2TvHvks-hG1V4BaPlJUYgl98DT6KYzmm8LDhVkAFSMd_zsxpD4ucjijnsTGRhAhbULQJMnr1XQ7kvCGZBuPu6wTPqIAElWrSwO2ATEjKy2UQDSX4SQfxxYPOTVnLZmgJmuJd3buD5POY_Z3v6hsX3hHXW1Ihia2eXKY5D7Df_mS4w0RcbK_TEWOX1APHyds2g5WEOjkN-5w7jRPZSdts4J2cPBoFfgv21DuvPTU41YtmYg&quot;);
-                      "></div>
-                    <div class="p-6 flex flex-col gap-3">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-white text-xl font-headline font-bold leading-tight">
-                                Milla Urbana Madrid
-                            </h3>
-                            <span
-                                class="bg-secondary-container/20 text-secondary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Road</span>
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <div class="flex items-center gap-2 text-on-surface-variant text-sm">
-                                <span class="material-symbols-outlined text-xs">calendar_today</span>
-                                15 de Mayo, 2024
-                            </div>
-                            <div class="flex items-center gap-2 text-on-surface-variant text-sm">
-                                <span class="material-symbols-outlined text-xs">location_on</span>
-                                Madrid Centro, España
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Race Card 2 -->
-                <div
-                    class="flex flex-col bg-surface-container-low rounded-lg overflow-hidden group hover:translate-y-[-4px] transition-all">
-                    <div class="w-full aspect-[16/10] bg-center bg-no-repeat bg-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                        data-alt="Breath-taking mountain trail with a lone runner climbing a steep ridge at sunset, wide cinematic angle"
-                        style="
-                        background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB7aXEQSQFkRjmUYsoG9bfbKiDbwvA9g_IopB8LtkQ6AaCeh0AuDijbw2gkdvxiBJrYTmdXLE8g9QS9GxMeop8F55qym3mWOeZfzYNR-VWO6uoS_xeEekp7JdlNEP4C9alZyOS4314FG_XGH3BAZM42d8qbW9Fm2h3PY5-n-5o2mN0-Kjqm6GXTj45wAd7yeXqvPDzU5B9KlqjISK3wY90xeO4Kpi7wFzM6Mkp3V5Et6fZMIMucEzmfCt6EwOzT277gn0uFRdFBN_M&quot;);
-                      "></div>
-                    <div class="p-6 flex flex-col gap-3">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-white text-xl font-headline font-bold leading-tight">
-                                Trail Sierra Norte
-                            </h3>
-                            <span
-                                class="bg-secondary-container/20 text-secondary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Trail</span>
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <div class="flex items-center gap-2 text-on-surface-variant text-sm">
-                                <span class="material-symbols-outlined text-xs">calendar_today</span>
-                                22 de Junio, 2024
-                            </div>
-                            <div class="flex items-center gap-2 text-on-surface-variant text-sm"
-                                data-location="Sierra Norte" style="">
-                                <span class="material-symbols-outlined text-xs">location_on</span>
-                                Sierra de Madrid
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Race Card 3 -->
-                <div
-                    class="flex flex-col bg-surface-container-low rounded-lg overflow-hidden group hover:translate-y-[-4px] transition-all">
-                    <div class="w-full aspect-[16/10] bg-center bg-no-repeat bg-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                        data-alt="Athletes competing in a stadium during a 400m race, professional photography with focus on the lead athlete face"
-                        style="
-                        background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBuleNYEd_o9ZJzUFlhTNxutjOQ-AsWxWaGM0q7swIILKe8jxSQDLsmxoSTqoSZ8KtbCUQkd0hLtJmI0k7WN7LLIYZ6lTPPYzZlktlImWVc1ZyOekAvJOjVhkQSDWhR889j90wAxp8DV78i9TZ26NaX3Dx7EAP5z0booyQOfLTo5ny2NK1uEqzw72fbzBRVzQEXrkxOBZn0pdHS-9c8WjptTEilRnIdLC8lm3yn8eqGjDpCxyfMiSRNjmojgTwLplWe-r7sNhvN-Zo&quot;);
-                      "></div>
-                    <div class="p-6 flex flex-col gap-3">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-white text-xl font-headline font-bold leading-tight">
-                                Maratón Valencia
-                            </h3>
-                            <span
-                                class="bg-secondary-container/20 text-secondary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Marathon</span>
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <div class="flex items-center gap-2 text-on-surface-variant text-sm">
-                                <span class="material-symbols-outlined text-xs">calendar_today</span>
-                                10 de Octubre, 2024
-                            </div>
-                            <div class="flex items-center gap-2 text-on-surface-variant text-sm"
-                                data-location="Valencia" style="">
-                                <span class="material-symbols-outlined text-xs">location_on</span>
-                                Ciudad de las Artes
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Se pintan las tarjetas -->
+            <div id="atletas-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
             </div>
         </section>
     </main>

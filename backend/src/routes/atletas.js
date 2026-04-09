@@ -18,6 +18,7 @@ module.exports = (app,db) => {
             age: req.body.age,
             dni: req.body.dni,
             telephone: req.body.telephone,
+            city: req.body.city,
             photo: req.body.photo
         });
         res.status(201).json({});
@@ -30,6 +31,7 @@ module.exports = (app,db) => {
             age: req.body.age,
             dni: req.body.dni,
             telephone: req.body.telephone,
+            city:req.body.city,
             photo: req.body.photo
         }).where({Id: req.params.atletasId});
         res.status(201).json({});
