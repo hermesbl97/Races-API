@@ -95,11 +95,13 @@
     <!-- TopNavBar -->
     <nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl">
         <div class="flex justify-between items-center px-8 py-4 max-w-[1920px] mx-auto">
-            <div class="text-2xl font-black italic tracking-tighter text-[#ffffff] lexend">RaceAPI</div>
+            <div class="text-2xl font-black italic tracking-tighter text-[#ffffff] lexend">
+            <a href="./index.html">RaceAPI</a>    
+            </div>
             <!-- Desktop Navigation -->
             <div class="hidden md:flex gap-8 items-center">
                 <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
-                    href="#">Competiciones</a>
+                    href="./carreras.html">Competiciones</a>
                 <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
                     href="#">Atletas</a>
                 <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
@@ -127,11 +129,11 @@
             <p class="text-lg md:text-xl text-on-surface-variant max-w-xl mb-10 font-body leading-relaxed">
                 Estás buscando metas, encuentra aqui las próximas compticiones y rompe barreras. </p>
             <div class="flex flex-wrap gap-4">
-                <button
-                    class="kinetic-gradient text-on-primary px-10 py-4 rounded-lg font-black text-sm uppercase lexend flex items-center gap-2 hover:shadow-[0_0_30px_rgba(148,170,255,0.4)] transition-all">
+                <a
+                    class="kinetic-gradient text-on-primary px-10 py-4 rounded-lg font-black text-sm uppercase lexend flex items-center gap-2 hover:shadow-[0_0_30px_rgba(148,170,255,0.4)] transition-all" href="./carreras.html">
                     Ver Carreras
                     <span class="material-symbols-outlined">trending_flat</span>
-                </button>
+                </a>
                 <button
                     class="border border-outline-variant/30 text-white px-10 py-4 rounded-lg font-black text-sm uppercase lexend hover:bg-surface-variant transition-all">
                     Inscríbete Ya
@@ -152,11 +154,13 @@
                     Carreras</h2>
                 <div class="h-1 w-24 bg-secondary mt-4"></div>
             </div>
-            <button
-                class="text-secondary text-sm font-bold lexend uppercase tracking-widest flex items-center gap-2 hover:translate-x-2 transition-transform">
+            <a
+                class="text-secondary text-sm font-bold lexend uppercase tracking-widest flex items-center gap-2 hover:translate-x-2 transition-transform" href="./carreras.html">
                 Ver todo el calendario
                 <span class="material-symbols-outlined">chevron_right</span>
-            </button>
+        </a>
+        </div>
+        <div id="grid-featured-races" class="grid grid-cols-1 md:grid-cols-3 gap-8">
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Race Card 1 -->
