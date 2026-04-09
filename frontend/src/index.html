@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#004eea",
+                        "outline-variant": "#484847",
+                        "inverse-on-surface": "#565555",
+                        "on-tertiary": "#711d6a",
+                        "on-primary": "#00257b",
+                        "surface-variant": "#262626",
+                        "surface-bright": "#2c2c2c",
+                        "on-error-container": "#ffb2b9",
+                        "on-secondary-container": "#fff6f3",
+                        "on-secondary": "#3c1400",
+                        "on-secondary-fixed": "#5c2300",
+                        "tertiary-dim": "#ef8cde",
+                        "error-dim": "#d73357",
+                        "secondary-dim": "#ff7520",
+                        "inverse-surface": "#fcf9f8",
+                        "secondary-container": "#9f4200",
+                        "primary-container": "#809bff",
+                        "on-tertiary-fixed": "#450042",
+                        "on-tertiary-fixed-variant": "#701c6a",
+                        "surface-container": "#1a1a1a",
+                        "on-error": "#490013",
+                        "tertiary": "#ffb0ef",
+                        "on-background": "#ffffff",
+                        "secondary": "#ff7520",
+                        "surface-dim": "#0e0e0e",
+                        "on-secondary-fixed-variant": "#893700",
+                        "outline": "#767575",
+                        "on-primary-fixed-variant": "#002376",
+                        "on-surface-variant": "#adaaaa",
+                        "background": "#0e0e0e",
+                        "surface-container-lowest": "#000000",
+                        "tertiary-container": "#fe99ed",
+                        "secondary-fixed": "#ffc5aa",
+                        "surface": "#0e0e0e",
+                        "primary-fixed": "#809bff",
+                        "on-primary-fixed": "#000000",
+                        "secondary-fixed-dim": "#ffb28c",
+                        "on-primary-container": "#001b61",
+                        "primary-fixed-dim": "#6c8cff",
+                        "tertiary-fixed": "#fe99ed",
+                        "error-container": "#a70138",
+                        "primary-dim": "#3367ff",
+                        "tertiary-fixed-dim": "#ef8cde",
+                        "surface-container-highest": "#262626",
+                        "on-tertiary-container": "#661060",
+                        "surface-tint": "#94aaff",
+                        "error": "#ff6e84",
+                        "primary": "#94aaff",
+                        "surface-container-low": "#131313",
+                        "surface-container-high": "#20201f",
+                        "on-surface": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="selection:bg-secondary selection:text-on-secondary">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl">
+        <div class="flex justify-between items-center px-8 py-4 max-w-[1920px] mx-auto">
+            <div class="text-2xl font-black italic tracking-tighter text-[#ffffff] lexend">
+            <a href="./index.html">RaceAPI</a>    
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="./carreras.html">Competiciones</a>
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="#">Atletas</a>
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="#">Inscripciones</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button
+                    class="bg-[#94aaff] text-[#00257b] px-6 py-2 rounded-lg font-bold text-sm uppercase lexend hover:bg-[#262626] transition-all duration-300 active:scale-95">Sign
+                    In</button>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Hero Athlete" class="w-full h-full object-cover grayscale opacity-60"
+                data-alt="dynamic low-angle shot of a young male sprinter exploding from starting blocks on a professional athletics track during twilight"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-vw9MQN5WFJlkInV3su-hN1aLeBwUs3XX6a5tYoefQ2L4k80ew2vcWs6HL1TRf6YojddOck0JcjUxv_CQZ3fY4P4NI9Y4vO1M9B54e3D02f1WJJLsQXtuIHx_JfFdOZLM73iWwYUC7VmA48Iiv8RNZ2apyya8pIEN9LsJp1qTrmHxnHBz9AaNPnfJBguBce-xXL0-mlkO9nlTIrWLuw2enTF6PSBgGP9vrXUlsyKRuaHZm34RhZfzDcOkrsPpS7Dy_cyEX3oG0eQ" />
+            <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
+        </div>
+        <div class="relative z-10 px-8 md:px-20 max-w-5xl">
+            <h1 class="text-6xl md:text-9xl font-black italic tracking-tighter lexend text-white leading-[0.85] mb-8">
+                SUPERA TUS<br /><span class="text-primary">LÍMITES</span>
+            </h1>
+            <p class="text-lg md:text-xl text-on-surface-variant max-w-xl mb-10 font-body leading-relaxed">
+                Estás buscando metas, encuentra aqui las próximas compticiones y rompe barreras. </p>
+            <div class="flex flex-wrap gap-4">
+                <a
+                    class="kinetic-gradient text-on-primary px-10 py-4 rounded-lg font-black text-sm uppercase lexend flex items-center gap-2 hover:shadow-[0_0_30px_rgba(148,170,255,0.4)] transition-all" href="./carreras.html">
+                    Ver Carreras
+                    <span class="material-symbols-outlined">trending_flat</span>
+                </a>
+                <button
+                    class="border border-outline-variant/30 text-white px-10 py-4 rounded-lg font-black text-sm uppercase lexend hover:bg-surface-variant transition-all">
+                    Inscríbete Ya
+                </button>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-outline-variant font-bold lexend">Scroll</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+        </div>
+    </section>
+    <!-- Featured Races Grid -->
+    <section class="py-24 px-8 max-w-[1920px] mx-auto bg-surface">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+                <h2 class="text-4xl md:text-6xl font-black italic tracking-tighter lexend text-white uppercase">Próximas
+                    Carreras</h2>
+                <div class="h-1 w-24 bg-secondary mt-4"></div>
+            </div>
+            <a
+                class="text-secondary text-sm font-bold lexend uppercase tracking-widest flex items-center gap-2 hover:translate-x-2 transition-transform" href="./carreras.html">
+                Ver todo el calendario
+                <span class="material-symbols-outlined">chevron_right</span>
+        </a>
+        </div>
+        <div id="grid-featured-races" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Race Card 1 -->
+            <div
+                class="group bg-surface-container-low overflow-hidden rounded-lg transition-all hover:bg-surface-container-high">
+                <div class="h-64 overflow-hidden relative">
+                    <img alt="Milla Urbana Madrid"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        data-alt="urban city street at dawn prepared for a marathon with marathon banners and early morning orange light"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZi9vEFETp5WKTv27F-vscHpPnKesujOyWGL3SzeDdV-WqsNu0EBVLzmJn7t0-glJnttXMbhXse_gtsx1dV64g8voyznE29aSBxl2U3zrxnQkx5VOOdNkxvAWiVRag6HoBiFUHpOySIHN0R2RgGjWmqHr38NBNFSk_syBcocmnNKP297uF1tZCg4O6fcU8x-EWw4cdlwZxsp3gP7DtxPVBL4I34kf3UaN65aqz_j2UhIGG1-KsmXHWbGd8dSG_6DHhVMMCptYAMdk" />
+                    <div
+                        class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 text-xs font-black lexend rounded">
+                        NUEVO</div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-primary text-xs font-bold lexend tracking-widest uppercase">15 MAY 2024</span>
+                        <div class="flex items-center gap-1 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm">location_on</span>
+                            <span class="text-[10px] font-bold uppercase">Madrid, ES</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black italic lexend text-white mb-6 leading-tight">Milla Urbana Madrid</h3>
+                    <div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+                        <span class="text-xs font-bold text-on-surface-variant lexend">1.6 KM · ASFALTO</span>
+                        <button
+                            class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Race Card 2 -->
+            <div
+                class="group bg-surface-container-low overflow-hidden rounded-lg transition-all hover:bg-surface-container-high">
+                <div class="h-64 overflow-hidden relative">
+                    <img alt="Trail Sierra Norte"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        data-alt="rugged mountain trail winding through a pine forest with dramatic shadows and dust particles in the air"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwiY9sEf3xpYmtaXhpqBppVz4tMJ5YrFOvu0dtEVrtdkoen4BQWIfo2KrV5QsBFj7CWWWaBLtDKEPU1E7EmMGz0JUAeWMFuI_Q32SRW5WH5yqyFhXVOvZJnaFR9wvDSsef58aVD9CDeR9YEyB-aWSkIO6g44YW1qrVD-DD6T0D2L4Jl5cCS0fam2ZMvORCp29iD-t9vWtUCXSi9Cec_9ldA-6PGfI5dEiSVs7Wpm1pZRela-qWz0K6wWZc3eBEKAGI4DAksf7zfc0" />
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-primary text-xs font-bold lexend tracking-widest uppercase">02 JUN 2024</span>
+                        <div class="flex items-center gap-1 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm">location_on</span>
+                            <span class="text-[10px] font-bold uppercase">Guadarrama, ES</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black italic lexend text-white mb-6 leading-tight">Trail Sierra Norte</h3>
+                    <div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+                        <span class="text-xs font-bold text-on-surface-variant lexend">21 KM · MONTAÑA</span>
+                        <button
+                            class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Race Card 3 -->
+            <div
+                class="group bg-surface-container-low overflow-hidden rounded-lg transition-all hover:bg-surface-container-high">
+                <div class="h-64 overflow-hidden relative">
+                    <img alt="Meeting Nocturno"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        data-alt="professional blue athletics track with white lane markings under bright stadium lighting at night"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr_DNOCMwuz4RoBkvCT4DaZmjsfIMMCFB1kKyZogMiP2v8bXVhSYU2xHi_bD_XKi44tPDClibXy4QT676P6fZoWj4zGMVvMxSP0lEdRIMgggLJucak-ZekTDm2XgIim4DhtTsVmT4MTYKxPByR9ST7N9P3xFI4RPsQPXES6M1Y-uFaRlWbo00A-S3VbOfIKKav_tOG0uxHKJDkvRAhj2M1JIzN9ci4YoE8YbRq12Cw2tkd8y4afDt-FU3zoAqFwjM6_wHNEcwnz3w" />
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-primary text-xs font-bold lexend tracking-widest uppercase">18 JUN 2024</span>
+                        <div class="flex items-center gap-1 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm">location_on</span>
+                            <span class="text-[10px] font-bold uppercase">Barcelona, ES</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black italic lexend text-white mb-6 leading-tight">Meeting Nocturno BCN
+                    </h3>
+                    <div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+                        <span class="text-xs font-bold text-on-surface-variant lexend">MULTI · PISTA</span>
+                        <button
+                            class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Athlete Spotlight -->
+    <section class="py-24 bg-surface-container-low overflow-hidden">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-4">
+                    <h2
+                        class="text-5xl font-black italic tracking-tighter lexend text-white uppercase mb-8 leading-none">
+                        Generación<br />Kinetic</h2>
+                    <p class="text-on-surface-variant font-body mb-8 leading-relaxed">
+                        Conoce a las promesas que están rompiendo récords y llevando el atletismo español a lo más alto.
+                    </p>
+                    <div class="flex gap-4">
+                        <button
+                            class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <button
+                            class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Athlete 1 -->
+                    <div class="relative group">
+                        <div class="aspect-[4/5] overflow-hidden rounded-lg bg-surface-container-highest">
+                            <img alt="Lucía Méndez"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                data-alt="dramatic portrait of a young athletic woman with focused expression and sweat, dark cinematic lighting"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNhajubVWPFfai2-Fq9E263HAfxDnyWPO9yNdt5cy4s_RwHkLLtmGiU6L6a-h0My9-mPJgp-l5cKDbnQ74etJeR81nTs-ZD8icHLMxjRfD1e89H-wG0lO_69iVgAhpfNyARleZl-FDaypERKuvWVdYleaAj91Hbub71pQOaPUnHJyf--qYhHWikjWSrg-c5UfJAPpR6_g3Gl1RrbRMZdV1D03V1vJayMmVnNFHhhY40oRl3JKKAEOoQM-EGe0a9FnbZexqdpAnwpQ" />
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
+                            <div
+                                class="bg-surface-container-highest/90 backdrop-blur-md p-6 rounded-lg border-l-4 border-primary">
+                                <h4 class="text-xl font-black lexend text-white">LUCÍA MÉNDEZ</h4>
+                                <p class="text-primary text-xs font-bold lexend tracking-wider uppercase mt-1">Campeona
+                                    Regional Sub-20</p>
+                                <div class="mt-4 flex gap-4 text-[10px] font-bold text-on-surface-variant lexend">
+                                    <span>PB: 11.42s</span>
+                                    <span>100M LISOS</span>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <!-- Athlete 2 -->
+                    <div class="relative group">
+                        <div class="aspect-[4/5] overflow-hidden rounded-lg bg-surface-container-highest">
+                            <img alt="Carlos Ruiz"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                data-alt="athletic male runner catching breath after a sprint, intense look, high contrast urban lighting"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkMQ4EBtunvzHnpiVTcT1MoW5_TLr2QL77Vc3Gjk_xhM0_DjduuBXbSAc322IAGILKEzs9Bmqbs3r715hO7qDtNBNmZHO0O9LXZ2uQOeyS22p2TVHdlYrHQamkgtFGgJ9UWiKzDwjqYwvnGEHpxXiRgopMbvrLnBzOeFFreqzhWPVfBSJvgBztClWqWRe8Ro7oPbCD1LgwAy2DUSGGob9CDYmfOE7txClfVXqqg3Gvc3CR_laMgzJxC-Xy2dVZsJmrx9V16qACJA8" />
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
+                            <div
+                                class="bg-surface-container-highest/90 backdrop-blur-md p-6 rounded-lg border-l-4 border-secondary">
+                                <h4 class="text-xl font-black lexend text-white">CARLOS RUIZ</h4>
+                                <p class="text-secondary text-xs font-bold lexend tracking-wider uppercase mt-1">Record
+                                    Nacional Juvenil</p>
+                                <div class="mt-4 flex gap-4 text-[10px] font-bold text-on-surface-variant lexend">
+                                    <span>PB: 1:46.12</span>
+                                    <span>800M LISOS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Registration Banner -->
+    <section class="px-8 py-12 max-w-[1920px] mx-auto">
+        <div
+            class="relative rounded-lg overflow-hidden kinetic-gradient p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12 group">
+            <div class="absolute right-0 top-0 opacity-10 pointer-events-none translate-x-1/4 -translate-y-1/4">
+                <span class="text-[20rem] font-black italic lexend select-none">RUN</span>
+            </div>
+            <div class="relative z-10 text-center md:text-left">
+                <h2
+                    class="text-4xl md:text-6xl font-black italic tracking-tighter lexend text-on-primary uppercase leading-tight">
+                    ¿Listo para competir?<br />Las inscripciones están abiertas.
+                </h2>
+                <p class="text-on-primary/80 mt-6 font-medium text-lg max-w-xl">
+                    No dejes pasar la oportunidad de medirte con los mejores. Asegura tu plaza hoy mismo.
+                </p>
+            </div>
+            <button
+                class="relative z-10 bg-on-primary text-primary-container px-12 py-5 rounded-lg font-black text-lg uppercase lexend shadow-xl hover:scale-105 active:scale-95 transition-all">
+                Inscribirse ahora
+            </button>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-[#0e0e0e] w-full pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <div class="text-xl font-black text-[#ffffff] lexend mb-6">RaceAPI</div>
+                <p class="text-[#ffffff]/60 font-['Inter'] text-xs tracking-widest uppercase leading-loose max-w-xs">
+                    Impulsando el rendimiento humano a través de la precisión y el diseño.
+                </p>
+                <div class="flex gap-4 mt-8">
+                    <a class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center hover:text-[#94aaff] transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">public</span>
+                    </a>
+                    <a class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center hover:text-[#94aaff] transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">alternate_email</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-2">Comunidad</h5>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Atletas</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Clubes</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Competiciones</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-2">Legal</h5>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Privacy Policy</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Terms of Service</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Contact</a>
+                </div>
+            </div>
+            <div class="flex flex-col items-end justify-between">
+                <div class="w-full">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-4">Newsletter</h5>
+                    <div class="flex border-b border-outline-variant/30 pb-2">
+                        <input
+                            class="bg-transparent border-none text-xs font-bold focus:ring-0 w-full placeholder:text-outline-variant"
+                            placeholder="EMAIL" type="email" />
+                        <button class="material-symbols-outlined text-primary">arrow_forward</button>
+                    </div>
+                </div>
+                <div class="text-[#ffffff]/40 font-['Inter'] text-[10px] tracking-widest uppercase mt-12 md:mt-0">
+                    © 2026 RaceAPI. Derechos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
