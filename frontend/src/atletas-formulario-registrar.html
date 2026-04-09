@@ -102,7 +102,7 @@
             filter: invert(1);
         }
     </style>
-        <script type="module" src="registrar-carreras.js"></script>
+    <script type="module" src="registrar-atletas.js"></script>
 </head>
 
 <body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
@@ -135,7 +135,7 @@
                 class="absolute -top-12 -left-8 text-[12rem] font-black text-white/[0.03] select-none font-headline leading-none">01</span>
             <h1
                 class="text-5xl md:text-7xl font-black font-headline tracking-tighter uppercase leading-tight relative z-10">
-                Race <br /><span class="text-primary">Registration</span>
+                Registrar <br /><span class="text-primary">Atleta</span>
             </h1>
         </div>
         <!-- Main Content Layout (Asymmetric) -->
@@ -158,37 +158,57 @@
                                     class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="name">Nombre del evento</label>
                                 <input
                                     class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
-                                    placeholder="Carrera contra la ELA" type="text" id="name" />
+                                    placeholder="Hermes" type="text" id="name" />
                                 <div
                                     class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
                                 </div>
                             </div>
                             <div class="group relative">
                                 <label
-                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="distance">Distancia (kms)</label>
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="surname">Apellidos</label>
                                 <input
                                     class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
-                                    placeholder="10" type="number" id="distance"/>
+                                    placeholder="Barriga Longás" type="text" id="surname"/>
+                                <div
+                                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
+                                </div>
+                            </div>
+                            <div class="group relative">
+                                <label
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="age">Edad</label>
+                                <input
+                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
+                                    placeholder="28" type="number" id="age" />
+                                <div
+                                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
+                                </div>
+                            </div>
+                            <div class="group relative">
+                                <label
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="telephone">Tel. móvil</label>
+                                <input
+                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
+                                    placeholder="689212649" type="number" id="telephone"/>
                                 <div
                                     class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
                                 </div>
                             </div>
                             <div class="group relative md:col-span-2">
                                 <label
-                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="location">Lugar</label>
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="dni">Dni</label>
                                 <input
                                     class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
-                                    placeholder="Zaragoza" type="text" id="location"/>
+                                    placeholder="16223579L" type="text" id="dni"/>
                                 <div
                                     class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
                                 </div>
                             </div>
                             <div class="group relative md:col-span-2">
                                 <label
-                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="date">Fecha del evento</label>
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="city">Ciudad de nacimiento</label>
                                 <input
-                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium appearance-none"
-                                    type="date" id="date" />
+                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
+                                    placeholder="Zaragoza" type="text" id="city"/>
                                 <div
                                     class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
                                 </div>
@@ -199,13 +219,13 @@
                     <div class="pt-6">
                         <button
                             class="group relative w-full md:w-auto overflow-hidden rounded-md bg-gradient-to-br from-primary to-primary-container px-12 py-5 transition-all active:scale-95 shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
-                            type="submit" onclick="addCarrera()">
+                            type="submit" onclick="addAtleta()">
                             <div
                                 class="absolute inset-0 w-full h-full bg-white/10 translate-x-full group-hover:translate-x-0 transition-transform skew-x-12">
                             </div>
                             <span
                                 class="relative z-10 flex items-center justify-center text-on-primary font-headline font-black tracking-widest uppercase italic">
-                                Complete Registration
+                                Registrar atleta
                                 <span class="material-symbols-outlined ml-3 text-xl">bolt</span>
                             </span>
                         </button>
