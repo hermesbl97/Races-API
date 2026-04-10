@@ -41,9 +41,9 @@ window.obtainAtletas = function () {
 
                     // Grupo de Botones
                     '<div class="flex gap-3">' +
-                    '<button onclick="editAtleta(' + atleta.id + ')" class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Editar">' +
+                    '<a class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Editar">' +
                     '<span class="material-symbols-outlined text-xl">edit_square</span>' +
-                    '</button>' +
+                    '</a>' +
                     '<button onclick="removeAtleta(' + atleta.id + ')" class="text-on-surface-variant hover:text-error transition-colors p-1" title="Eliminar">' +
                     '<span class="material-symbols-outlined text-xl">delete</span>' +
                     '</button>' +

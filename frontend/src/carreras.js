@@ -15,9 +15,9 @@ window.obtainCarreras = function () {
                                 '<span class="bg-secondary-container/20 text-secondary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest">' + (carrera.distance || '??') + ' KM</span>' +
                                 '<div class="flex gap-2">' +
                                     // Botón de editar
-                                    '<button onclick="editCarrera(' + carrera.id + ')" class="text-on-surface-variant hover:text-primary transition-colors">' +
-                                        '<span class="material-symbols-outlined text-xl">edit_square</span>' +
-                                    '</button>' +
+'<a href="carreras-editar.html?id=' + carrera.id + '" class="text-on-surface-variant hover:text-primary transition-colors" title="Editar">' +
+                        '<span class="material-symbols-outlined text-xl">edit_square</span>' +
+                    '</a>' +
                                     //Botón de eliminar 
                                     '<button onclick="removeCarrera(' + carrera.id + ')" class="text-on-surface-variant hover:text-error transition-colors">' +
                                         '<span class="material-symbols-outlined text-xl">delete</span>' +
