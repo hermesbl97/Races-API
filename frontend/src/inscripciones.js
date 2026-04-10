@@ -19,8 +19,9 @@ window.obtainInscripciones = function () {
             puntoClase = "bg-error shadow-[0_0_8px_rgba(255,110,132,0.8)]";
         }
 
+                  // llamamos al id para que el frontend se entere de que se han eliminado valores de la tabla y se actualice
         tbody.innerHTML += `
-          <tr class="hover:bg-surface-container-highest/30 transition-colors">
+          <tr id="inscripcion-${inscripcion.id}" class="hover:bg-surface-container-highest/30 transition-colors"> 
             <td class="px-6 py-5">
               <div class="flex items-center gap-4">
                 <div>
@@ -54,7 +55,7 @@ window.obtainInscripciones = function () {
             <td class="px-6 py-5 text-right">
               <div class="flex justify-end gap-3">
                 <button class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all text-primary">Editar</button>
-                <button onclick="deleteInscripcion" class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all text-error">Eliminar</button>
+                <button onclick="removeInscripcion(${inscripcion.id})" class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all text-error">Eliminar</button>
               </div>
             </td>
           </tr>
@@ -64,4 +65,19 @@ window.obtainInscripciones = function () {
     .catch((err) => {
       console.error("Error al cargar datos:", err);
     });
+};
+
+window.removeInscripcion = function (Id) {
+  if (confirm("¿Estás seguro de que quieres eliminar la inscripción seleccionada?")) {
+    axios
+      .delete("http://localhost:8080/inscripciones/" + Id)
+      .then((response) => {
+        // Si el backend responde correctamente
+        const element = document.getElementById("inscripcion-" + Id);
+        if (element) {
+          element.remove();
+        }
+      })
+      .catch((err) => console.error("No se pudo eliminar:", err));
+  }
 };
