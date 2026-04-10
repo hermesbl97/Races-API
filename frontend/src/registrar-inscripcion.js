@@ -1,4 +1,5 @@
 import axios from 'axios';
+import inscripciones from '../../backend/src/routes/inscripciones';
 
 window.loadCarreras = function () {
   axios
@@ -32,6 +33,20 @@ window.loadAtletas = function () {
             selectAtleta.innerHTML += `<option value="${atleta.id}">${atleta.name} ${atleta.surname}</option>`;
         });
     }).catch(err => console.error("Error al cargar atletas:", err));
+};
+
+window.addInscripcion = function () {
+    const price = document.getElementById('price').value;
+    const atletaId = document.getElementById('select-atleta').value;
+    const carreraId = document.getElementById('select-carrera').value;
+
+    axios.post('http://localhost:8080/inscripciones', {
+        price: price,
+        atletaId: atletaId,
+        carreraId: carreraId,
+    }).then(() => {
+        window.location.href = "inscripciones.html";
+    })
 };
 
 document.addEventListener('DOMContentLoaded', () => {
