@@ -106,7 +106,7 @@
             border-bottom: 2px solid #94aaff;
         }
     </style>
-       <script src="inscripciones.js"></script>
+    <script src="inscripciones.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
@@ -134,10 +134,21 @@
     </nav>
     <main class="pt-32 pb-20 px-8 max-w-7xl mx-auto min-h-screen">
         <!-- Header & Page Title -->
-        <header class="mb-12">
-            <h1 class="text-5xl font-black tracking-tighter lexend uppercase mb-2">Gestión de Inscripciones</h1>
-            <p class="text-on-surface-variant font-medium tracking-wide uppercase text-sm">Registro de Atletas y sus
-                Competiciones</p>
+        <header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="flex flex-col gap-1">
+                <h1 class="text-5xl font-black tracking-tighter lexend uppercase leading-none">
+                    Gestión de Inscripciones
+                </h1>
+                <p class="text-on-surface-variant font-medium tracking-wide uppercase text-[10px] md:text-xs">
+                    Registro de Atletas y sus Competiciones
+                </p>
+            </div>
+
+            <a href="./inscripcion-formulario-registrar.html"
+                class="flex items-center gap-2 bg-secondary text-on-primary px-4 py-2.5 rounded-md font-headline font-bold text-[11px] uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300 active:scale-95 shadow-lg shadow-secondary/20 h-fit w-fit">
+                <span class="material-symbols-outlined text-base">add_circle</span>
+                Nueva Inscripción
+            </a>
         </header>
         <!-- Registration Table -->
         <div class="bg-surface-container-low overflow-hidden">
@@ -166,7 +177,7 @@
                         </tr>
                     </thead>
                     <tbody id="inscripciones-body" class="divide-y divide-outline-variant/10">
-    </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
