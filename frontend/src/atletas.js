@@ -3,13 +3,12 @@ window.obtainAtletas = function () {
         .then((response) => {
             const atletasList = response.data;
             const grid = document.getElementById('atletas-container');
-            if (!grid) return;
 
             // Limpiamos el grid antes de empezar
             grid.innerHTML = '';
 
             // Creamos una tarjeta diferente con cada elemento de la lista y sus atributos
-            atletasList.forEach(atleta => {
+            atletasList.forEach((atleta) => {
                 grid.innerHTML +=
                     '<div id="atleta-' + atleta.id + '" class="flex flex-col bg-surface-container-low rounded-lg overflow-hidden group hover:translate-y-[-4px] transition-all">' +
                     // Imagen
@@ -38,12 +37,13 @@ window.obtainAtletas = function () {
                     '<span class="material-symbols-outlined text-xs text-secondary/70">location_on</span>' + (atleta.city || '---') +
                     '</div>' +
                     '</div>' +
-
                     // Grupo de Botones
                     '<div class="flex gap-3">' +
-                    '<a class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Editar">' +
+                    '<a href="atletas-editar.html?id=' +
+                    atleta.id +
+                    '" class="text-on-surface-variant hover:text-primary transition-colors" title="Editar2">' +
                     '<span class="material-symbols-outlined text-xl">edit_square</span>' +
-                    '</a>' +
+                    "</a>" +
                     '<button onclick="removeAtleta(' + atleta.id + ')" class="text-on-surface-variant hover:text-error transition-colors p-1" title="Eliminar">' +
                     '<span class="material-symbols-outlined text-xl">delete</span>' +
                     '</button>' +

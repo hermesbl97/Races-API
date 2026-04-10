@@ -27,7 +27,8 @@ window.updateCarrera = function() {
     const distance = document.getElementById('distance').value;
     const location = document.getElementById('location').value;
     const date = document.getElementById('date').value;
-
+    
+    if (confirm('¿Estás seguro de que quieres modificar esta carrera?')) {
     axios.put('http://localhost:8080/carreras/' + carreraId, {
         name: name,
         distance: distance,
@@ -36,6 +37,7 @@ window.updateCarrera = function() {
     }).then(response => { //Después de modificar los datos, te redirige a la lista de carreras
         window.location.href = "carreras.html"; 
     })
+    }
 };
 
 window.onload = loadCarrera;
