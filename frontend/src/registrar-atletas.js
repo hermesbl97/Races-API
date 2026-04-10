@@ -16,5 +16,4 @@ window.addAtleta = function () {
         telephone: telephone,
         city: city,
     });
-
 };
