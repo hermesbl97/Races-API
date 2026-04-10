@@ -20,4 +20,30 @@ window.loadAtleta = function() {
     }
 };
 
-window.onload = laodAtleta;
+window.updateAtleta = function() {
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const atletaId = queryParams.get('id');
+
+    const name = document.getElementById('name').value;
+    const surname = document.getElementById('surname').value;
+    const age = document.getElementById('age').value;
+    const dni = document.getElementById('dni').value;
+    const telephone = document.getElementById('telephone').value;
+    const city = document.getElementById('city').value;
+    
+    if (confirm('¿Estás seguro de querer modificar este atleta?')) {
+    axios.put('http://localhost:8080/atletas/' + atletaId, {
+        name: name,
+        surname: surname,
+        age: age,
+        dni: dni,
+        telephone: telephone,
+        city: city,
+    }).then(response => { //Después de modificar los datos, te redirige a la lista de atletas
+        window.location.href = "atletas.html"; 
+    });
+    };
+};
+
+window.onload = loadAtleta;
