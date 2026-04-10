@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#701c6a",
+                        "surface-variant": "#262626",
+                        "surface-bright": "#2c2c2c",
+                        "surface-container": "#1a1a1a",
+                        "secondary": "#ff7520",
+                        "on-secondary-fixed-variant": "#893700",
+                        "primary-dim": "#3367ff",
+                        "on-primary-fixed": "#000000",
+                        "tertiary": "#ffb0ef",
+                        "secondary-fixed-dim": "#ffb28c",
+                        "secondary-container": "#9f4200",
+                        "surface-dim": "#0e0e0e",
+                        "surface-container-low": "#131313",
+                        "on-primary": "#00257b",
+                        "inverse-on-surface": "#565555",
+                        "on-primary-container": "#001b61",
+                        "on-secondary-fixed": "#5c2300",
+                        "primary": "#94aaff",
+                        "on-error-container": "#ffb2b9",
+                        "on-tertiary-container": "#661060",
+                        "on-surface": "#ffffff",
+                        "error": "#ff6e84",
+                        "tertiary-fixed": "#fe99ed",
+                        "secondary-fixed": "#ffc5aa",
+                        "error-dim": "#d73357",
+                        "tertiary-fixed-dim": "#ef8cde",
+                        "inverse-primary": "#004eea",
+                        "primary-fixed": "#809bff",
+                        "on-surface-variant": "#adaaaa",
+                        "primary-container": "#809bff",
+                        "outline-variant": "#484847",
+                        "on-secondary-container": "#fff6f3",
+                        "on-secondary": "#3c1400",
+                        "surface-container-lowest": "#000000",
+                        "secondary-dim": "#ff7520",
+                        "on-background": "#ffffff",
+                        "tertiary-dim": "#ef8cde",
+                        "background": "#0e0e0e",
+                        "on-primary-fixed-variant": "#002376",
+                        "outline": "#767575",
+                        "surface": "#0e0e0e",
+                        "primary-fixed-dim": "#6c8cff",
+                        "error-container": "#a70138",
+                        "tertiary-container": "#fe99ed",
+                        "inverse-surface": "#fcf9f8",
+                        "surface-container-highest": "#262626",
+                        "surface-container-high": "#20201f",
+                        "on-tertiary-fixed": "#450042",
+                        "surface-tint": "#94aaff",
+                        "on-tertiary": "#711d6a",
+                        "on-error": "#490013"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .kinetic-glass {
+            background: rgba(38, 38, 38, 0.7);
+            backdrop-filter: blur(20px);
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+    </style>
+    <script src="editar-atleta.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary" onload="loadAtleta()">
+    <!-- Shared Component: TopAppBar -->
+    <nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl">
+        <div class="flex justify-between items-center px-8 py-4 max-w-[1920px] mx-auto">
+            <div class="text-2xl font-black italic tracking-tighter text-[#ffffff] lexend">
+                <a href="./index.html">RaceAPI</a>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="./carreras.html">Competiciones</a>
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="./atletas.html">Atletas</a>
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="#">Inscripciones</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button
+                    class="bg-[#94aaff] text-[#00257b] px-6 py-2 rounded-lg font-bold text-sm uppercase lexend hover:bg-[#262626] transition-all duration-300 active:scale-95">Sign
+                    In</button>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
+        <!-- Editorial Header Section -->
+        <div class="relative mb-16">
+            <span
+                class="absolute -top-12 -left-8 text-[12rem] font-black text-white/[0.03] select-none font-headline leading-none">01</span>
+            <h1
+                class="text-5xl md:text-7xl font-black font-headline tracking-tighter uppercase leading-tight relative z-10">
+                Editar <br /><span class="text-primary">Atleta</span>
+            </h1>
+        </div>
+        <!-- Main Content Layout (Asymmetric) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Registration Form Area -->
+            <div class="lg:col-span-8 space-y-12">
+                <form class="space-y-16">
+                    <!-- Section: Personal Information -->
+                    <section class="bg-surface-container-low p-8 md:p-12 rounded-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl">
+                        </div>
+                        <h2
+                            class="text-sm font-bold tracking-[0.2em] uppercase text-secondary mb-10 font-label flex items-center">
+                            <span class="w-8 h-[1px] bg-secondary mr-4"></span>
+                            Complete los campos
+                        </h2>
+                        <div class="grid md:grid-cols-2 gap-10">
+                            <div class="group relative">
+                                <label
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="name">Nombre del evento</label>
+                                <input
+                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
+                                    placeholder="Hermes" type="text" id="name" />
+                                <div
+                                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
+                                </div>
+                            </div>
+                            <div class="group relative">
+                                <label
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="surname">Apellidos</label>
+                                <input
+                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
+                                    placeholder="Barriga Longás" type="text" id="surname"/>
+                                <div
+                                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
+                                </div>
+                            </div>
+                            <div class="group relative">
+                                <label
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="age">Edad</label>
+                                <input
+                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
+                                    placeholder="28" type="number" id="age" />
+                                <div
+                                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
+                                </div>
+                            </div>
+                            <div class="group relative">
+                                <label
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="telephone">Tel. móvil</label>
+                                <input
+                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
+                                    placeholder="689212649" type="number" id="telephone"/>
+                                <div
+                                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
+                                </div>
+                            </div>
+                            <div class="group relative md:col-span-2">
+                                <label
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="dni">Dni</label>
+                                <input
+                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
+                                    placeholder="16223579L" type="text" id="dni"/>
+                                <div
+                                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
+                                </div>
+                            </div>
+                            <div class="group relative md:col-span-2">
+                                <label
+                                    class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-label" for="city">Ciudad de nacimiento</label>
+                                <input
+                                    class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:border-primary focus:ring-0 text-on-surface p-4 transition-all duration-300 font-headline font-medium"
+                                    placeholder="Zaragoza" type="text" id="city"/>
+                                <div
+                                    class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 group-focus-within:w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Register button -->
+                    <div class="pt-6">
+                        <button
+                            class="group relative w-full md:w-auto overflow-hidden rounded-md bg-gradient-to-br from-primary to-primary-container px-12 py-5 transition-all active:scale-95 shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+                            type="submit" onclick="updateAtleta()">
+                            <div
+                                class="absolute inset-0 w-full h-full bg-white/10 translate-x-full group-hover:translate-x-0 transition-transform skew-x-12">
+                            </div>
+                            <span
+                                class="relative z-10 flex items-center justify-center text-on-primary font-headline font-black tracking-widest uppercase italic">
+                                Modificar atleta
+                                <span class="material-symbols-outlined ml-3 text-xl">bolt</span>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!-- Shared Component: Footer -->
+    <footer class="bg-[#0e0e0e] w-full pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <div class="text-xl font-black text-[#ffffff] lexend mb-6">RaceAPI</div>
+                <p class="text-[#ffffff]/60 font-['Inter'] text-xs tracking-widest uppercase leading-loose max-w-xs">
+                    Impulsando el rendimiento humano a través de la precisión y el diseño.
+                </p>
+                <div class="flex gap-4 mt-8">
+                    <a class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center hover:text-[#94aaff] transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">public</span>
+                    </a>
+                    <a class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center hover:text-[#94aaff] transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">alternate_email</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-2">
+                        Comunidad</h5>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="./atletas.html">Atletas</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Clubes</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="./carreras.html">Competiciones</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-2">
+                        Legal</h5>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Privacy Policy</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Terms of Service</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Contact</a>
+                </div>
+            </div>
+            <div class="flex flex-col items-end justify-between">
+                <div class="w-full">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-4">
+                        Newsletter</h5>
+                    <div class="flex border-b border-outline-variant/30 pb-2">
+                        <input
+                            class="bg-transparent border-none text-xs font-bold focus:ring-0 w-full placeholder:text-outline-variant"
+                            placeholder="EMAIL" type="email" />
+                        <button class="material-symbols-outlined text-primary">arrow_forward</button>
+                    </div>
+                </div>
+                <div class="text-[#ffffff]/40 font-['Inter'] text-[10px] tracking-widest uppercase mt-12 md:mt-0">
+                    © 2026 RaceAPI. Derechos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
