@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#5c2300",
+                        "on-secondary-fixed-variant": "#893700",
+                        "on-surface": "#ffffff",
+                        "on-primary": "#00257b",
+                        "surface-container": "#1a1a1a",
+                        "secondary-dim": "#ff7520",
+                        "on-primary-container": "#001b61",
+                        "tertiary-fixed-dim": "#ef8cde",
+                        "surface": "#0e0e0e",
+                        "inverse-surface": "#fcf9f8",
+                        "tertiary": "#ffb0ef",
+                        "on-tertiary-container": "#661060",
+                        "on-surface-variant": "#adaaaa",
+                        "on-tertiary-fixed-variant": "#701c6a",
+                        "surface-container-highest": "#262626",
+                        "on-error-container": "#ffb2b9",
+                        "outline": "#767575",
+                        "tertiary-fixed": "#fe99ed",
+                        "surface-bright": "#2c2c2c",
+                        "secondary-fixed-dim": "#ffb28c",
+                        "on-primary-fixed-variant": "#002376",
+                        "surface-container-high": "#20201f",
+                        "primary-dim": "#3367ff",
+                        "primary-container": "#809bff",
+                        "tertiary-container": "#fe99ed",
+                        "inverse-on-surface": "#565555",
+                        "on-secondary-container": "#fff6f3",
+                        "background": "#0e0e0e",
+                        "surface-tint": "#94aaff",
+                        "primary-fixed": "#809bff",
+                        "secondary-container": "#9f4200",
+                        "tertiary-dim": "#ef8cde",
+                        "secondary": "#ff7520",
+                        "inverse-primary": "#004eea",
+                        "on-background": "#ffffff",
+                        "on-error": "#490013",
+                        "secondary-fixed": "#ffc5aa",
+                        "on-secondary": "#3c1400",
+                        "surface-variant": "#262626",
+                        "error-container": "#a70138",
+                        "on-tertiary-fixed": "#450042",
+                        "primary-fixed-dim": "#6c8cff",
+                        "surface-dim": "#0e0e0e",
+                        "outline-variant": "#484847",
+                        "primary": "#94aaff",
+                        "surface-container-lowest": "#000000",
+                        "on-tertiary": "#711d6a",
+                        "surface-container-low": "#131313",
+                        "error": "#ff6e84",
+                        "on-primary-fixed": "#000000",
+                        "error-dim": "#d73357"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0e0e0e;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lexend {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-tab {
+            border-bottom: 2px solid #94aaff;
+        }
+    </style>
+       <script src="inscripciones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="text-on-surface" onload="obtainInscripciones()">
+    <nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl">
+        <div class="flex justify-between items-center px-8 py-4 max-w-[1920px] mx-auto">
+            <div class="text-2xl font-black italic tracking-tighter text-[#ffffff] lexend">
+                <a href="./index.html">RaceAPI</a>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="./carreras.html">Competiciones</a>
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="./atletas.html">Atletas</a>
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="./inscripciones.html">Inscripciones</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button
+                    class="bg-[#94aaff] text-[#00257b] px-6 py-2 rounded-lg font-bold text-sm uppercase lexend hover:bg-[#262626] transition-all duration-300 active:scale-95">Sign
+                    In</button>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-32 pb-20 px-8 max-w-7xl mx-auto min-h-screen">
+        <!-- Header & Page Title -->
+        <header class="mb-12">
+            <h1 class="text-5xl font-black tracking-tighter lexend uppercase mb-2">Gestión de Inscripciones</h1>
+            <p class="text-on-surface-variant font-medium tracking-wide uppercase text-sm">Registro de Atletas y sus
+                Competiciones</p>
+        </header>
+        <!-- Registration Table -->
+        <div class="bg-surface-container-low overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-surface-container-highest/50">
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Atleta</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Carrera</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Estado</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Precio</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Fecha inscripción</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-right">
+                                Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inscripciones-body" class="divide-y divide-outline-variant/10">
+    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+    <!-- Footer -->
+    <footer class="bg-[#0e0e0e] w-full pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <div class="text-xl font-black text-[#ffffff] lexend mb-6">RaceAPI</div>
+                <p class="text-[#ffffff]/60 font-['Inter'] text-xs tracking-widest uppercase leading-loose max-w-xs">
+                    Impulsando el rendimiento humano a través de la precisión y el diseño.
+                </p>
+                <div class="flex gap-4 mt-8">
+                    <a class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center hover:text-[#94aaff] transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">public</span>
+                    </a>
+                    <a class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center hover:text-[#94aaff] transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">alternate_email</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-2">Comunidad</h5>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="./atletas.html">Atletas</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Clubes</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="./carreras.html">Competiciones</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-2">Legal</h5>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Privacy Policy</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Terms of Service</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Contact</a>
+                </div>
+            </div>
+            <div class="flex flex-col items-end justify-between">
+                <div class="w-full">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-4">Newsletter</h5>
+                    <div class="flex border-b border-outline-variant/30 pb-2">
+                        <input
+                            class="bg-transparent border-none text-xs font-bold focus:ring-0 w-full placeholder:text-outline-variant"
+                            placeholder="EMAIL" type="email" />
+                        <button class="material-symbols-outlined text-primary">arrow_forward</button>
+                    </div>
+                </div>
+                <div class="text-[#ffffff]/40 font-['Inter'] text-[10px] tracking-widest uppercase mt-12 md:mt-0">
+                    © 2026 RaceAPI. Derechos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
