@@ -38,17 +38,19 @@ window.obtainAtletas = function () {
                     '</div>' +
                     '</div>' +
                     // Grupo de Botones
-                    '<div class="flex gap-3">' +
-                    '<a href="atletas-editar.html?id=' +
-                    atleta.id +
-                    '" class="text-on-surface-variant hover:text-primary transition-colors" title="Editar2">' +
+                    '<div class="flex items-center gap-3">' + // Añadimos items-center para asegurar el eje vertical
+                    '<a href="atletas-editar.html?id=' + atleta.id + '" ' +
+                    'class="text-on-surface-variant hover:text-primary transition-colors p-1 flex items-center justify-center" ' +
+                    'title="Editar">' +
                     '<span class="material-symbols-outlined text-xl">edit_square</span>' +
-                    "</a>" +
-                    '<button onclick="removeAtleta(' + atleta.id + ')" class="text-on-surface-variant hover:text-error transition-colors p-1" title="Eliminar">' +
+                    '</a>' +
+                    '<button onclick="removeAtleta(' + atleta.id + ')" ' +
+                    'class="text-on-surface-variant hover:text-error transition-colors p-1 flex items-center justify-center" ' +
+                    'title="Eliminar">' +
                     '<span class="material-symbols-outlined text-xl">delete</span>' +
                     '</button>' +
-                    '</div>' +
-                    '</div>' +
+                    '</div>'
+                '</div>' +
                     '</div>' +
                     '</div>';
             });

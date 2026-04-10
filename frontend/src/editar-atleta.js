@@ -33,16 +33,16 @@ window.updateAtleta = function() {
     const city = document.getElementById('city').value;
     
     if (confirm('¿Estás seguro de querer modificar este atleta?')) {
-    axios.put('http://localhost:8080/atletas/' + atletaId, {
-        name: name,
-        surname: surname,
-        age: age,
-        dni: dni,
-        telephone: telephone,
-        city: city,
-    }).then(response => { //Después de modificar los datos, te redirige a la lista de atletas
-        window.location.href = "atletas.html"; 
-    });
+        axios.put('http://localhost:8080/atletas/' + atletaId, {
+            name: name,
+            surname: surname,
+            age: age,
+            dni: dni,
+            telephone: telephone,
+            city: city,
+        }).then(response => { //Después de modificar los datos, te redirige a la lista de atletas
+            window.location.href = "atletas.html"; 
+        });
     };
 };
 
