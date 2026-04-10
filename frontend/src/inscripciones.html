@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#5c2300",
+                        "on-secondary-fixed-variant": "#893700",
+                        "on-surface": "#ffffff",
+                        "on-primary": "#00257b",
+                        "surface-container": "#1a1a1a",
+                        "secondary-dim": "#ff7520",
+                        "on-primary-container": "#001b61",
+                        "tertiary-fixed-dim": "#ef8cde",
+                        "surface": "#0e0e0e",
+                        "inverse-surface": "#fcf9f8",
+                        "tertiary": "#ffb0ef",
+                        "on-tertiary-container": "#661060",
+                        "on-surface-variant": "#adaaaa",
+                        "on-tertiary-fixed-variant": "#701c6a",
+                        "surface-container-highest": "#262626",
+                        "on-error-container": "#ffb2b9",
+                        "outline": "#767575",
+                        "tertiary-fixed": "#fe99ed",
+                        "surface-bright": "#2c2c2c",
+                        "secondary-fixed-dim": "#ffb28c",
+                        "on-primary-fixed-variant": "#002376",
+                        "surface-container-high": "#20201f",
+                        "primary-dim": "#3367ff",
+                        "primary-container": "#809bff",
+                        "tertiary-container": "#fe99ed",
+                        "inverse-on-surface": "#565555",
+                        "on-secondary-container": "#fff6f3",
+                        "background": "#0e0e0e",
+                        "surface-tint": "#94aaff",
+                        "primary-fixed": "#809bff",
+                        "secondary-container": "#9f4200",
+                        "tertiary-dim": "#ef8cde",
+                        "secondary": "#ff7520",
+                        "inverse-primary": "#004eea",
+                        "on-background": "#ffffff",
+                        "on-error": "#490013",
+                        "secondary-fixed": "#ffc5aa",
+                        "on-secondary": "#3c1400",
+                        "surface-variant": "#262626",
+                        "error-container": "#a70138",
+                        "on-tertiary-fixed": "#450042",
+                        "primary-fixed-dim": "#6c8cff",
+                        "surface-dim": "#0e0e0e",
+                        "outline-variant": "#484847",
+                        "primary": "#94aaff",
+                        "surface-container-lowest": "#000000",
+                        "on-tertiary": "#711d6a",
+                        "surface-container-low": "#131313",
+                        "error": "#ff6e84",
+                        "on-primary-fixed": "#000000",
+                        "error-dim": "#d73357"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0e0e0e;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lexend {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-tab {
+            border-bottom: 2px solid #94aaff;
+        }
+    </style>
+</head>
+
+<body class="text-on-surface">
+   <nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl">
+        <div class="flex justify-between items-center px-8 py-4 max-w-[1920px] mx-auto">
+            <div class="text-2xl font-black italic tracking-tighter text-[#ffffff] lexend">
+            <a href="./index.html">RaceAPI</a>    
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="./carreras.html">Competiciones</a>
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="./atletas.html">Atletas</a>
+                <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
+                    href="./inscripciones.html">Inscripciones</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button
+                    class="bg-[#94aaff] text-[#00257b] px-6 py-2 rounded-lg font-bold text-sm uppercase lexend hover:bg-[#262626] transition-all duration-300 active:scale-95">Sign
+                    In</button>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-32 pb-20 px-8 max-w-7xl mx-auto min-h-screen">
+        <!-- Header & Page Title -->
+        <header class="mb-12">
+            <h1 class="text-5xl font-black tracking-tighter lexend uppercase mb-2">Gestión de Inscripciones</h1>
+            <p class="text-on-surface-variant font-medium tracking-wide uppercase text-sm">Registro de Atletas y sus Competiciones</p>
+        </header>
+        <!-- Registration Table -->
+        <div class="bg-surface-container-low overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-surface-container-highest/50">
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Atleta</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Carrera</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Categoría</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Estado</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">
+                                Fecha</th>
+                            <th
+                                class="px-6 py-5 text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-right">
+                                Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-outline-variant/10">
+                        <!-- Row 1 -->
+                        <tr class="hover:bg-surface-container-highest/30 transition-colors">
+                            <td class="px-6 py-5">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest ring-1 ring-outline-variant/20">
+                                        <img class="w-full h-full object-cover"
+                                            data-alt="close-up of a competitive runner with sweat and determination on her face during a morning training session"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDki58YsNORYfKvyOylk5HWtQj7JnK57RSh_B-Lnywjck_ZlOJFM7rT1cMHAbANVXQBx-9LLl2ohwDzq2EyNmd5A7L7UvVdcwCEf-uCxiekx93-cilNuLUglVxzQ8xTUoieqjHGc8dtc6iQw2U3-s8OAl0669VrdTvbIAy3U8j5vpJpZ7VVxolvNVT4LYdzMdG_xL6Sp34HSKSHs3esEKQnmvUgQ3IlslPxUlbZgwoK_NOBiNkts0BL1XQrofI0GKpwye2NANaFT74" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm lexend uppercase tracking-tight">Elena Rodríguez</p>
+                                        <p class="text-[10px] text-on-surface-variant">ID: #KP-9921</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5">
+                                <p class="text-sm font-semibold lexend uppercase">Maratón Valencia</p>
+                                <p class="text-[10px] text-on-surface-variant">42K | INTERNACIONAL</p>
+                            </td>
+                            <td class="px-6 py-5">
+                                <span
+                                    class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-full">Elite</span>
+                            </td>
+                            <td class="px-6 py-5">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(148,170,255,0.8)]">
+                                    </div>
+                                    <span class="text-[10px] font-black uppercase tracking-widest">Pagado</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5 text-[10px] font-medium text-on-surface-variant">12 OCT 2023</td>
+                            <td class="px-6 py-5 text-right">
+                                <div class="flex justify-end gap-3">
+                                    <button
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary hover:underline transition-all">Ver
+                                        ficha</button>
+                                    <button
+                                        class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all">Editar</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 2 -->
+                        <tr class="hover:bg-surface-container-highest/30 transition-colors">
+                            <td class="px-6 py-5">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest ring-1 ring-outline-variant/20">
+                                        <img class="w-full h-full object-cover"
+                                            data-alt="focused male athlete in sprinting gear waiting at the starting blocks on a vibrant blue track"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrrtwtnbx6r0I3u0qRWiH8ZW-YDEGHFnL8Liba0IU73laqprODhB6zDBpdzKk-NoW9cVDiLFtilpplIsVrO6DBckYRr3XV0IFhmxgMfqXLIm6esb_vGAU0aOjVyBzjwvwr4yNRH1GpozDh0RLMJ9l-MBiOx7WuNWXHHUfs8zZhFWVaZ3u--rx-oSI1poRtxTbkWwCH-oSc1mGeV_l_ak7FMynqFbKHb_tg0TgwNoIwNQvpTbARmr2y-r4Qp8iTHy2iHsakd0LXJcA" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm lexend uppercase tracking-tight">Marc Solana</p>
+                                        <p class="text-[10px] text-on-surface-variant">ID: #KP-8842</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5">
+                                <p class="text-sm font-semibold lexend uppercase">Medio Maratón BCN</p>
+                                <p class="text-[10px] text-on-surface-variant">21K | CIUDAD</p>
+                            </td>
+                            <td class="px-6 py-5">
+                                <span
+                                    class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-black uppercase tracking-widest rounded-full">Open</span>
+                            </td>
+                            <td class="px-6 py-5">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(255,117,32,0.8)]">
+                                    </div>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-widest text-secondary">Pendiente</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5 text-[10px] font-medium text-on-surface-variant">14 OCT 2023</td>
+                            <td class="px-6 py-5 text-right">
+                                <div class="flex justify-end gap-3">
+                                    <button
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary hover:underline transition-all">Ver
+                                        ficha</button>
+                                    <button
+                                        class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all">Editar</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 3 -->
+                        <tr class="hover:bg-surface-container-highest/30 transition-colors">
+                            <td class="px-6 py-5">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest ring-1 ring-outline-variant/20">
+                                        <img class="w-full h-full object-cover"
+                                            data-alt="veteran athlete with grey hair smiling while wearing his marathon medals at a bright stadium background"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMNqg7qWfVh5Us0hsHZzSVgR-Z2W8oSHLn5p4qrOWI6YxYFxRC7UZYq17dr-fyQsxm6knBymmsZxP-WH7aCIq17MGESDtXwO8DdUWNQeilLOoq9nrD6fhaTInr_O4jyzhMM9SIwbhPTlX97lNq8ZRW2Eh1hY3wan89Maz2wTEtr1t5cHtRTClJ6uQ2ngxdzNhSaubNRXrFYL1Su4KzC3D1wbMXh_ue9EML2_-oUSPGa6wisj5fZj_E6UDXK91ARThk5rji2aV8na8" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm lexend uppercase tracking-tight">Julian Costa</p>
+                                        <p class="text-[10px] text-on-surface-variant">ID: #KP-1029</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5">
+                                <p class="text-sm font-semibold lexend uppercase">Trail Pirineus</p>
+                                <p class="text-[10px] text-on-surface-variant">100K | MONTAÑA</p>
+                            </td>
+                            <td class="px-6 py-5">
+                                <span
+                                    class="px-3 py-1 bg-secondary/10 text-secondary text-[10px] font-black uppercase tracking-widest rounded-full">Veteran</span>
+                            </td>
+                            <td class="px-6 py-5">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(148,170,255,0.8)]">
+                                    </div>
+                                    <span class="text-[10px] font-black uppercase tracking-widest">Pagado</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5 text-[10px] font-medium text-on-surface-variant">15 OCT 2023</td>
+                            <td class="px-6 py-5 text-right">
+                                <div class="flex justify-end gap-3">
+                                    <button
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary hover:underline transition-all">Ver
+                                        ficha</button>
+                                    <button
+                                        class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all">Editar</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row 4 -->
+                        <tr class="hover:bg-surface-container-highest/30 transition-colors">
+                            <td class="px-6 py-5">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest ring-1 ring-outline-variant/20">
+                                        <img class="w-full h-full object-cover"
+                                            data-alt="professional male track athlete stretching before a race under stadium lights with blue and orange flares"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfnTXbhBfaj8kitG-5YPuLWnzmtsJkMQ5ED5wqxowguKcuee6T6eQRaimCwvOTKWTMb1-hvaQPRRzTEHKG3KnnAWAsfFNeOQhcgXpxpPb8E7eO9SIH0OLM1gGGUVNOvbII0uNyZCEz1Ebeh7QMehfsgFR-vEEn_WkmaJHKNLcokkVoIT6J2l-AavOz-kuLqqJNfyA_466_u6110NUjeCmQHSmLmZmW5ukNo8RZIstbJ1s3JuLz3Q-y5936MGkaCIx_3ZfXMOKx7fI" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm lexend uppercase tracking-tight">Sergio Blanco</p>
+                                        <p class="text-[10px] text-on-surface-variant">ID: #KP-7721</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5">
+                                <p class="text-sm font-semibold lexend uppercase">10K Madrid</p>
+                                <p class="text-[10px] text-on-surface-variant">10K | URBANA</p>
+                            </td>
+                            <td class="px-6 py-5">
+                                <span
+                                    class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-full">Elite</span>
+                            </td>
+                            <td class="px-6 py-5">
+                                <div class="flex items-center gap-2">
+                                    <div
+                                        class="w-1.5 h-1.5 rounded-full bg-error shadow-[0_0_8px_rgba(255,110,132,0.8)]">
+                                    </div>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-widest text-error">Cancelado</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-5 text-[10px] font-medium text-on-surface-variant">18 OCT 2023</td>
+                            <td class="px-6 py-5 text-right">
+                                <div class="flex justify-end gap-3">
+                                    <button
+                                        class="text-[10px] font-black uppercase tracking-widest text-primary hover:underline transition-all">Ver
+                                        ficha</button>
+                                    <button
+                                        class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all">Editar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+    <!-- Footer -->
+    <footer class="bg-[#0e0e0e] w-full pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <div class="text-xl font-black text-[#ffffff] lexend mb-6">RaceAPI</div>
+                <p class="text-[#ffffff]/60 font-['Inter'] text-xs tracking-widest uppercase leading-loose max-w-xs">
+                    Impulsando el rendimiento humano a través de la precisión y el diseño.
+                </p>
+                <div class="flex gap-4 mt-8">
+                    <a class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center hover:text-[#94aaff] transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">public</span>
+                    </a>
+                    <a class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center hover:text-[#94aaff] transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">alternate_email</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-2">Comunidad</h5>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="./atletas.html">Atletas</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Clubes</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="./carreras.html">Competiciones</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-2">Legal</h5>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Privacy Policy</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Terms of Service</a>
+                    <a class="text-[#ffffff]/60 hover:text-[#94aaff] font-['Inter'] text-xs uppercase transition-colors"
+                        href="#">Contact</a>
+                </div>
+            </div>
+            <div class="flex flex-col items-end justify-between">
+                <div class="w-full">
+                    <h5 class="text-[#ff7520] font-['Inter'] text-xs tracking-widest uppercase mb-4">Newsletter</h5>
+                    <div class="flex border-b border-outline-variant/30 pb-2">
+                        <input
+                            class="bg-transparent border-none text-xs font-bold focus:ring-0 w-full placeholder:text-outline-variant"
+                            placeholder="EMAIL" type="email" />
+                        <button class="material-symbols-outlined text-primary">arrow_forward</button>
+                    </div>
+                </div>
+                <div class="text-[#ffffff]/40 font-['Inter'] text-[10px] tracking-widest uppercase mt-12 md:mt-0">
+                    © 2026 RaceAPI. Derechos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
