@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { notifySuccess} from './util.js';
+
 window.obtainCarreras = function () {
   axios
     .get("http://localhost:8080/carreras")
@@ -69,6 +72,7 @@ window.removeCarrera = function (Id) {
         const element = document.getElementById("carrera-" + Id);
         if (element) {
           element.remove();
+          notifySuccess('Carrera eliminada correctamente')
         }
       })
       .catch((err) => console.error("No se pudo eliminar:", err));

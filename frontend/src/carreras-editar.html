@@ -102,8 +102,7 @@
             filter: invert(1);
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="editar-carrera.js"></script>
+    <script type="module" src="editar-carrera.js"></script>
 </head>
 
 <body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary" onload="loadCarrera()">
@@ -120,7 +119,7 @@
                 <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
                     href="./atletas.html">Atletas</a>
                 <a class="font-['Lexend'] uppercase tracking-tight text-sm font-bold text-[#ffffff] hover:text-[#94aaff] transition-colors"
-                    href="#">Inscripciones</a>
+                    href="./inscripciones.html">Inscripciones</a>
             </div>
         </div>
     </nav>
@@ -195,7 +194,7 @@
                     <div class="pt-6">
                         <button
                             class="group relative w-full md:w-auto overflow-hidden rounded-md bg-gradient-to-br from-primary to-primary-container px-12 py-5 transition-all active:scale-95 shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
-                            type="submit" onclick="updateCarrera()">
+                            type="button" onclick="updateCarrera()">
                             <div
                                 class="absolute inset-0 w-full h-full bg-white/10 translate-x-full group-hover:translate-x-0 transition-transform skew-x-12">
                             </div>
