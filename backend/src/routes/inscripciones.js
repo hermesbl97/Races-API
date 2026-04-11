@@ -23,7 +23,7 @@ module.exports = (app, db) => {
 
     app.post('/inscripciones', async (req, res) => {
         await db('inscripciones').insert({
-            date: new Date().toLocaleDateString(),
+            date: db.raw("date('now')"), //se necesita cambiar la fecha al formato YYYY-MM-DD para que sea capaz de reconocerlo el sistema
             state: "Aceptada",
             price: req.body.price,
             atleta_id: req.body.atletaId,
