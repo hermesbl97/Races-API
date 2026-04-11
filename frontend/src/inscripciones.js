@@ -14,12 +14,13 @@ window.obtainInscripciones = function () {
         let estadoClase = "bg-primary/10 text-primary"; // Por defecto
         let puntoClase = "bg-primary shadow-[0_0_8px_rgba(148,170,255,0.8)]";
 
+        //Si la inscripción se encuentra cancelada saldrá en rojo.
         if (inscripcion.state === "Cancelada") {
-            estadoClase = "bg-error/10 text-error";
-            puntoClase = "bg-error shadow-[0_0_8px_rgba(255,110,132,0.8)]";
+          estadoClase = "bg-error/10 text-error";
+          puntoClase = "bg-error shadow-[0_0_8px_rgba(255,110,132,0.8)]";
         }
 
-                  // llamamos al id para que el frontend se entere de que se han eliminado valores de la tabla y se actualice
+        // llamamos al id para que el frontend se entere de que se han eliminado valores de la tabla y se actualice
         tbody.innerHTML += `
           <tr id="inscripcion-${inscripcion.id}" class="hover:bg-surface-container-highest/30 transition-colors"> 
             <td class="px-6 py-5">
@@ -54,8 +55,8 @@ window.obtainInscripciones = function () {
 
             <td class="px-6 py-5 text-right">
               <div class="flex justify-end gap-3">
-                <button class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all text-primary">Editar</button>
-                <button onclick="removeInscripcion(${inscripcion.id})" class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all text-error">Eliminar</button>
+              <a href="./inscripciones-editar.html?id=${inscripcion.id}" class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all text-primary hover:underline"> Editar</a>                
+              <button onclick="removeInscripcion(${inscripcion.id})" class="text-[10px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-all text-error">Eliminar</button>
               </div>
             </td>
           </tr>
