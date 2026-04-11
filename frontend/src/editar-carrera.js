@@ -1,5 +1,8 @@
+import axios from 'axios';
+import { notifyError, notifySuccess } from './util.js';
+
 //función para obtener el Id de la URL y pintar los datos 
-window.loadCarrera = function() {
+window.loadCarrera = function () {
     const queryParams = new URLSearchParams(window.location.search);
     const carreraId = queryParams.get('id');
 
@@ -18,7 +21,7 @@ window.loadCarrera = function() {
     }
 };
 
-window.updateCarrera = function() {
+window.updateCarrera = function () {
 
     const queryParams = new URLSearchParams(window.location.search);
     const carreraId = queryParams.get('id');
@@ -27,17 +30,28 @@ window.updateCarrera = function() {
     const distance = document.getElementById('distance').value;
     const location = document.getElementById('location').value;
     const date = document.getElementById('date').value;
-    
+
+    if (name == '') {
+        notifyError('El nombre es un campo obligatorio');
+        return;
+    }  
+    if (date == '') {
+        notifyError('La fecha es un campo obligatorio');
+        return;
+    }
+
     if (confirm('¿Estás seguro de que quieres modificar esta carrera?')) {
-    axios.put('http://localhost:8080/carreras/' + carreraId, {
-        name: name,
-        distance: distance,
-        location: location,
-        date: date,
-    }).then(response => { //Después de modificar los datos, te redirige a la lista de carreras
-        window.location.href = "carreras.html"; 
-    })
+        axios.put('http://localhost:8080/carreras/' + carreraId, {
+            name: name,
+            distance: distance,
+            location: location,
+            date: date
+        }).then(() => { //Después de modificar los datos, te redirige a la lista de carreras
+            notifySuccess('Se ha modificado la carrera correctamente');
+        })
     }
 };
 
-window.onload = loadCarrera;
+document.addEventListener('DOMContentLoaded', () => {
+    window.loadCarrera();
+});
