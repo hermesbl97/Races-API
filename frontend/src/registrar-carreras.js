@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {notifyError, notifySuccess} from './util.js';
+import {notifyError} from './util.js';
 
 window.addCarrera = function () {
     const name = document.getElementById('name').value;
@@ -20,7 +20,5 @@ window.addCarrera = function () {
         distance: distance,
         location: location,
         date: date,
-    }).then(() => {
-        notifySuccess('Carrera registrada');
-    })
+    });
 };

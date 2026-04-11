@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { notifySuccess} from './util.js';
+
 window.obtainAtletas = function () {
     axios.get('http://localhost:8080/atletas')
         .then((response) => {
@@ -68,6 +71,7 @@ window.removeAtleta = function (Id) {
                 const element = document.getElementById('atleta-' + Id);
                 if (element) {
                     element.remove();
+                    notifySuccess('Atleta eliminado correctamente')
                 }
             })
             .catch(err => console.error("No se pudo eliminar:", err));
