@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { notifySuccess} from './util.js';
+
 window.obtainInscripciones = function () {
   axios
     .get("http://localhost:8080/inscripciones")
@@ -77,6 +80,7 @@ window.removeInscripcion = function (Id) {
         const element = document.getElementById("inscripcion-" + Id);
         if (element) {
           element.remove();
+          notifySuccess('Inscripción eliminada correctamente')
         }
       })
       .catch((err) => console.error("No se pudo eliminar:", err));

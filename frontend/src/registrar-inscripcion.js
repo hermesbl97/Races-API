@@ -1,5 +1,7 @@
 import axios from 'axios';
 import inscripciones from '../../backend/src/routes/inscripciones';
+import {notifyError} from './util.js';
+
 
 window.loadCarreras = function () {
   axios
@@ -24,7 +26,7 @@ window.loadAtletas = function () {
     .then((response) => {
         const atletasList = response.data;
         const selectAtleta = document.getElementById('select-atleta');
-
+        
         //Se borra y coloca la opción por defecto
         selectAtleta.innerHTML = '<option value="">Seleccione una opción</option>';
 
@@ -40,11 +42,22 @@ window.addInscripcion = function () {
     const atletaId = document.getElementById('select-atleta').value;
     const carreraId = document.getElementById('select-carrera').value;
 
+    if(price <= 0) {
+        notifyError('El precio no puede ser 0 o inferior');
+        return;
+    } else if(carreraId == '') {
+        notifyError('Debe seleccionar una carrera');
+        return;
+    } else if(atletaId == '') {
+        notifyError('Debe seleccionar un atleta');
+        return;
+    }
+
     axios.post('http://localhost:8080/inscripciones', {
         price: price,
         atletaId: atletaId,
         carreraId: carreraId,
-    }).then(() => {
+    }).then(response => {
         window.location.href = "inscripciones.html";
     })
 };
