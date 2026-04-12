@@ -1,10 +1,14 @@
 const express = require ('express');   
 const cors = require ('cors');
 const knex = require('knex');
+const path = require('path');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const staticPath = path.resolve(__dirname, 'images');
+app.use('/uploads', express.static(staticPath));
 
 const db = knex({
     client: 'sqlite3',
