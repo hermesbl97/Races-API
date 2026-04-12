@@ -25,3 +25,6 @@ build/
 # Configuración de editores 
 .vscode/
 .idea/
+
+#Imagenes
+images/
