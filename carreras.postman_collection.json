@@ -1,0 +1,381 @@
+{
+	"info": {
+		"_postman_id": "a2f56fc9-f788-4b52-bdb1-c83a51894ac1",
+		"name": "carreras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "53185945",
+		"_collection_link": "https://a28704-4287345.postman.co/workspace/HERMES-(2SIO)-BARRIGA-LONG%C3%A1S's-~42e800b3-aa4c-41cc-827b-b9d925c5f1de/collection/53185945-a2f56fc9-f788-4b52-bdb1-c83a51894ac1?action=share&source=collection_link&creator=53185945"
+	},
+	"item": [
+		{
+			"name": "carreras",
+			"item": [
+				{
+					"name": "/carreras",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/carreras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carreras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/carreras/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/carreras/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carreras",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/carreras",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Maratón Sevilla\",\n    \"distance\": 21,\n    \"location\": \"Sevilla\",\n    \"date\": \"2026-04-13\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carreras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carreras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/carreras/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Maratón Sevilla\",\n    \"distance\": 42,\n    \"location\": \"Sevilla\",\n    \"date\": \"2026-11-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carreras/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carreras",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/carreras/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/carreras/3",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"carreras",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "atletas",
+			"item": [
+				{
+					"name": "/atletas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/atletas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"atletas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/atletas/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/atletas/19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"atletas",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/atletas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jorge\",\n    \"surname\": \"Carriedo García\",\n    \"age\": 52,\n    \"city\": \"Badajoz\",\n    \"dni\": \"16814985A\",\n    \"telephone\": \"651511497\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/atletas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"atletas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/atletas/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"Lara\",\n        \"surname\": \"Campano Ortiz\",\n        \"age\": 24,\n        \"dni\": \"9486235E\",\n        \"telephone\": 639835119,\n        \"city\": \"Santander\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/atletas/27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"atletas",
+								"27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/atletas/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Marta\",\n    \"surname\": \"Martinez Cuenca\",\n    \"age\": 27,\n    \"dni\": \"12354985B\",\n    \"telephone\": \"654321987\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/atletas/27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"atletas",
+								"27"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "inscripciones",
+			"item": [
+				{
+					"name": "/inscripciones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/inscripciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inscripciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/inscripciones/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/inscripciones/30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inscripciones",
+								"30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/inscripciones",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\": 50,\n    \"atletaId\": 24,\n    \"carreraId\": 11\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/inscripciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inscripciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/inscripciones/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"2026-01-28\",\n    \"price\": 50,\n    \"state\": \"Cancelada\",\n    \"atletaId\": 24,\n    \"carreraId\": 11\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/inscripciones/31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inscripciones",
+								"31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/inscripciones/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/inscripciones/31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"inscripciones",
+								"31"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
