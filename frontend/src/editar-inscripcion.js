@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.loadInscripcion();
 });
 
-// 4. Función de actualización corregida
 window.updateInscripcion = function () {
 
     const queryParams = new URLSearchParams(window.location.search);

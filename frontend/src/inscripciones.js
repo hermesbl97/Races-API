@@ -6,7 +6,7 @@ window.obtainInscripciones = function () {
     .get("http://localhost:8080/inscripciones")
     .then((response) => {
       const inscripcionesList = response.data;
-      console.log("Lo que llega al navegador:", inscripcionesList[0]); // <--- AÑADE ESTO
+      console.log("Lo que llega al navegador:", inscripcionesList[0]); 
       // Seleccionamos el tbody donde irán las filas
       const tbody = document.getElementById("inscripciones-body");
 

@@ -4,14 +4,14 @@ module.exports = (app, db) => {
     const multer = require('multer');
     const path = require('path');
 
-    const storage = multer.diskStorage({
-        destination: path.join(__dirname, '../images'),
-        filename: (req, file, cb) => {
+    const storage = multer.diskStorage({ //define donde y como se guardan las fotos
+        destination: path.join(__dirname, '../images'), //las guarda en la carpeta images con esa ruta
+        filename: (req, file, cb) => { //damos nombre al archivo mezclamos el nombre con la fecha para evitar archivos duplicados
             cb(null, 'foto-' + Date.now() + path.extname(file.originalname));
         }
     });
 
-    const upload = multer({ storage: storage });
+    const upload = multer({ storage: storage }); //objeto que procesará la subida
 
     app.get('/atletas', async (req, res) => {
         const atletas = await db('atletas').select('*');
@@ -23,7 +23,7 @@ module.exports = (app, db) => {
         res.status(200).json(atletas);
     });
 
-    app.post('/atletas', upload.single('photo'), async (req, res) => {
+    app.post('/atletas', upload.single('photo'), async (req, res) => { //definimos que esperamos un archivo en el campo photo
         try {
             // Si no se sube imagen usamos la imagen por defecto
             const photoName = req.file ? req.file.filename : 'default-image.jpg';

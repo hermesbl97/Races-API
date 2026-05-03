@@ -6,12 +6,11 @@ window.obtainCarreras = function () {
     .get("http://localhost:8080/carreras")
     .then((response) => {
       const carrerasList = response.data;
-      const grid = document.querySelector(".grid");
+      const grid = document.querySelector(".grid"); //busca el lugar del HTML donde pintar 
 
       grid.innerHTML = "";
 
       carrerasList.forEach((carrera) => {
-        // Añadimos un ID al div principal para poder borrarlo del DOM fácilmente
         grid.innerHTML +=
           '<div id="carrera-' +
           carrera.id +
